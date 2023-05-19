@@ -9,3 +9,14 @@ void Game::update_enemies()
 	//updating the timer for enemy spawning
 	if (this->enemies.size() < this->max_enemies)
 	{
+		if (this->enemy_spawn_timer >= this->enemy_spawn_timer_max)
+		{
+			//spawning enemies and reset the timer
+			this->spawn_enemy();
+			this->enemy_spawn_timer = 0.f;
+		}
+		else
+		{
+			this->enemy_spawn_timer += 1.f;
+		}
+	}
