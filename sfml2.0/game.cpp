@@ -12,3 +12,14 @@ void Game::render_enemies()
 		this->window->draw(e);
 	}
 }
+
+void Game::render()
+{
+	//clear old frame renders the game objects and display the window
+	this->window->clear();
+
+	//draw game objects
+	this->render_enemies();
+	this->render_text(*this->window);
+	this->window->display();
+}
