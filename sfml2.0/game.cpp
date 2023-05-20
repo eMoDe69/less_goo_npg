@@ -20,3 +20,8 @@ void Game::update_enemies()
 			this->enemy_spawn_timer += 1.f;
 		}
 	}
+	//moving and updating enemies
+	for (int i = 0; i < this->enemies.size(); i++)
+	{
+		bool deleted = false;
+		this->enemies[i].move(speed1, 2.f);
