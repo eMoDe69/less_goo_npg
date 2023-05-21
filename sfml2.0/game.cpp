@@ -24,3 +24,19 @@ else
 {
 	this->mouse_held = false;
 }
+
+//public functions
+void Game::update()
+{
+	this->poll_events();
+	if (this->end_game == false)
+	{
+		this->update_mouse_pos();
+		this->update_text();
+		this->update_enemies();
+	}
+	if (this->health < 1)
+	{
+		this->end_game = true;
+	}
+}
