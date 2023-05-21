@@ -25,3 +25,11 @@ void Game::update_enemies()
 	{
 		bool deleted = false;
 		this->enemies[i].move(speed1, 2.f);
+
+		if (this->enemies[i].getPosition().y > this->window->getSize().y)
+		{
+			this->enemies.erase(this->enemies.begin() + i);
+			this->health--;
+			std::cout << "zycie: " << this->health << std::endl;
+			this->speed2 = -speed2;
+		}
