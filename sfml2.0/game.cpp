@@ -23,3 +23,8 @@ void Game::render()
 	this->render_text(*this->window);
 	this->window->display();
 }
+
+void Game::render_text(sf::RenderTarget& target)
+{
+	target.draw(this->text);
+}
