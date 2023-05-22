@@ -33,3 +33,13 @@ void Game::update_enemies()
 			std::cout << "zycie: " << this->health << std::endl;
 			this->speed2 = -speed2;
 		}
+		if (this->enemies[i].getPosition().y > this->window->getSize().y)
+		{
+			this->speed2 = -speed2;
+		}
+		if (this->enemies[i].getPosition().x > this->window->getSize().x)
+		{
+			this->speed1 = -speed1;
+		}
+		if (this->enemies[i].getPosition().x > this->window->getSize().x)
+		{
