@@ -36,3 +36,22 @@ void Game::spawn_enemy()
 	this->enemy.setFillColor(sf::Color(a, b, c, 255));
 	this->enemies.push_back(this->enemy);
 }
+
+void Game::poll_events()
+{
+	while (this->window->pollEvent(this->event))
+	{
+		switch (this->event.type)
+		{
+		case sf::Event::Closed:
+			this->window->close();
+			break;
+		case sf::Event::KeyPressed:
+			if (this->event.key.code == sf::Keyboard::Escape)
+			{
+				this->window->close();
+			}
+			break;
+		}
+	}
+}
