@@ -20,3 +20,31 @@ void Game::init_variables()
 	this->speed1 = 0;
 	this->speed2 = 3;
 }
+
+void Game::init_window()
+{
+	this->video_mode.height = 1080;
+	this->video_mode.width = 1920;
+	this->window = new sf::RenderWindow(this->video_mode, "title", sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize);
+	this->window->setFramerateLimit(75);
+}
+
+void Game::init_enemies()
+{
+	this->enemy.setPosition(960.f, 540.f);
+	this->enemy.setSize(sf::Vector2f(100.f, 100.f));
+	this->enemy.setScale(sf::Vector2f(0.5f, 0.5f));
+}
+
+void Game::init_fonts()
+{
+
+}
+
+void Game::init_texts()
+{
+	this->text.setFont(this->font);
+	this->text.setCharacterSize(12);
+	this->text.setFillColor(sf::Color::White);
+	this->text.setString("NONE");
+}
