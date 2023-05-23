@@ -43,3 +43,16 @@ void Game::update_enemies()
 		}
 		if (this->enemies[i].getPosition().x > this->window->getSize().x)
 		{
+			this->speed1 = -speed1;
+		}
+		if (this->move_time >= this->move_time_max)
+		{
+			this->speed1 = -5 + rand() % (11);
+			this->speed2 = -5 + rand() % (11);
+			this->move_time = 0.f;
+		}
+		else
+		{
+			this->move_time += 1.f;
+		}
+	}
