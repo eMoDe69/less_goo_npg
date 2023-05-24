@@ -55,7 +55,7 @@ private:
 	void init_enemies();
 	void init_fonts();
 	void init_texts();
-public:
+
 	//const/dest
 	Game();
 	~Game();
@@ -68,5 +68,13 @@ public:
 	void spawn_enemy();
 	void poll_events();
 	void update_mouse_pos();
+
+	void update_enemies();
+	void update();
+	void update_text();
+
+	void render_enemies();
+	void render();
+	void render_text(sf::RenderTarget& target);
 };    
 #endif
