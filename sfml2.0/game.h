@@ -56,6 +56,7 @@ private:
 	void init_fonts();
 	void init_texts();
 public:
+
 	//const/dest
 	Game();
 	~Game();
