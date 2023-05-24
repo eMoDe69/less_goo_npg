@@ -11,9 +11,9 @@ void Game::init_variables()
 	this->points = 0;
 	this->enemy_spawn_timer_max = 40.f;
 	this->enemy_spawn_timer = this->enemy_spawn_timer_max;
-	this->max_enemies = 10;
+	this->max_enemies = 20;
 	this->mouse_held = false;
-	this->health = 10;
+	this->health = 5;
 	this->end_game = false;
 	this->move_time_max = 1000.f;
 	this->move_time = this->move_time_max;
@@ -164,8 +164,8 @@ void Game::update_enemies()
 			this->move_time += 1.f;
 		}
 	}
-  //sprawdzenie czy przeciwnik trafiony
-if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	//sprawdzenie czy przeciwnik trafiony
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		if (this->mouse_held == false)
 		{
@@ -186,9 +186,10 @@ if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			}
 		}
 	}
-else
-{
-	this->mouse_held = false;
+	else
+	{
+		this->mouse_held = false;
+	}
 }
 
 //funkcje publiczne
@@ -209,9 +210,9 @@ void Game::update()
   
   void Game::update_text()
 {
-	std::stringstream ss;
-	ss << "Points: " << this->points;
-	this->text.setString(ss.str());
+	//std::stringstream ss;
+	//ss << "Points: " << this->points;
+	//this->text.setString(ss.str());
 }
 
 void Game::render_enemies()
