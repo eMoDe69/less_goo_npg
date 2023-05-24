@@ -1,4 +1,4 @@
-//check if enemy is clicked
+//sprawdzenie czy przeciwnik trafiony
 if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
 		if (this->mouse_held == false)
@@ -9,11 +9,11 @@ if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 			{
 				if (this->enemies[i].getGlobalBounds().contains(this->mouse_pos_view))
 				{
-					//delete the enemy
+					//usuniecie przeciwnika
 					deleted = true;
 					this->enemies.erase(this->enemies.begin() + i);
 
-					//gain points
+					//przyznanie punktow graczowi
 					this->points += 1;
 					std::cout << "points: " << this->points << std::endl;
 				}
@@ -25,7 +25,7 @@ else
 	this->mouse_held = false;
 }
 
-//public functions
+//funkcje publiczne
 void Game::update()
 {
 	this->poll_events();
