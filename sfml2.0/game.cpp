@@ -106,3 +106,62 @@ void Game::poll_events()
 		}
 	}
 }
+
+void Game::update_mouse_pos()
+{
+	this->mouse_pos_window = sf::Mouse::getPosition(*this->window);
+	this->mouse_pos_view = this->window->mapPixelToCoords(this->mouse_pos_window);
+}
+void Game::update_enemies()
+{
+	//timer
+	if (this->enemies.size() < this->max_enemies)
+	{
+		if (this->enemy_spawn_timer >= this->enemy_spawn_timer_max)
+		{
+			//spawner
+			this->spawn_enemy();
+			this->enemy_spawn_timer = 0.f;
+		}
+		else
+		{
+			this->enemy_spawn_timer += 1.f;
+		}
+	}
+	//moving enemies
+	for (int i = 0; i < this->enemies.size(); i++)
+	{
+		bool deleted = false;
+		this->enemies[i].move(speed1, 2.f);
+
+		if (this->enemies[i].getPosition().y > this->window->getSize().y)
+		{
+			this->enemies.erase(this->enemies.begin() + i);
+			this->health--;
+			std::cout << "zycie: " << this->health << std::endl;
+			this->speed2 = -speed2;
+		}
+		if (this->enemies[i].getPosition().y > this->window->getSize().y)
+		{
+			this->speed2 = -speed2;
+		}
+		if (this->enemies[i].getPosition().x > this->window->getSize().x)
+		{
+			this->speed1 = -speed1;
+		}
+		if (this->enemies[i].getPosition().x > this->window->getSize().x)
+		{
+			this->speed1 = -speed1;
+		}
+		if (this->move_time >= this->move_time_max)
+		{
+			this->speed1 = -5 + rand() % (11);
+			this->speed2 = -5 + rand() % (11);
+			this->move_time = 0.f;
+		}
+		else
+		{
+			this->move_time += 1.f;
+		}
+	}
+
