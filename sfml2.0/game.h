@@ -68,6 +68,10 @@ public:
 	void spawn_enemy();
 	void poll_events();
 	void update_mouse_pos();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9fa8e3ee202e49375f6e8f034624e53a7c1134b2
 	void update_enemies();
 	void update();
 	void update_text();
@@ -75,6 +79,10 @@ public:
 	void render_enemies();
 	void render();
 	void render_text(sf::RenderTarget& target);
+<<<<<<< HEAD
 };
 
+=======
+};    
+>>>>>>> 9fa8e3ee202e49375f6e8f034624e53a7c1134b2
 #endif
