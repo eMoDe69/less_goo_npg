@@ -55,6 +55,7 @@ private:
 	void init_enemies();
 	void init_fonts();
 	void init_texts();
+public:
 
 	//const/dest
 	Game();
